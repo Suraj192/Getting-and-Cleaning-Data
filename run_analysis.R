@@ -38,8 +38,8 @@ merged$activity <- factor(merged$activity, labels=c("Walking", "Walking Upstairs
 
 # create the tidy data set
 tidy <- merged %>%
-  melt(id=c("subjID","activity")) %>% 
-  dcast(subjID+activity ~ variable, mean)
+  melt(id=c("subjID","activity")) %>% # converts the existing data frame to the molten data frame
+  dcast(subjID+activity ~ variable, mean) # this function cast molten data frame into the data frame
 
-# write the tidy data set to a file
-write.csv(tidy, "tidy.csv", row.names=FALSE)
+# writing the tidy data set into a text file
+write.table(tidy, "tidy.txt", row.names=FALSE)
