@@ -25,10 +25,7 @@ merged <- rbind(train, test) # merging all dataset and creating new dataset call
 
 
 # Extracting only the column related to the mean and standard deviation.
-# separating column containing word mean and std.
-
-locate_mean_sd <- grepl("mean\\(\\)", names(merged)) |
-  grepl("std\\(\\)", names(merged))
+locate_mean_sd <- grepl("mean\\(\\)", names(merged)) | grepl("std\\(\\)", names(merged)) # seeking the word mean and std, returns the logical value
 locate_mean_sd[1:2] <- TRUE # keeping first two column as well.
 merged <- merged[, locate_mean_sd] # selecting only required column previous merged datasets.
 
